@@ -6,9 +6,10 @@
 /*   By: chpenzko <chpenzko@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 10:14:32 by chpenzko          #+#    #+#             */
-/*   Updated: 2022/07/11 13:35:03 by chpenzko         ###   ########.fr       */
+/*   Updated: 2022/07/13 16:21:25 by chpenzko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 
 char	*read_and_save(int fd, char *save)
@@ -16,7 +17,7 @@ char	*read_and_save(int fd, char *save)
 	char	*buffer;
 	int		char_count;
 
-	buffer = (char *) malloc((BUFFER_SIZE + 1) * sizeof(char));
+	buffer = (char	*) malloc((BUFFER_SIZE + 1) * sizeof(char));
 	if(!buffer)
 		return (NULL);
 	char_count = 1;
