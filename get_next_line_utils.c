@@ -6,7 +6,7 @@
 /*   By: chpenzko <chpenzko@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 10:22:59 by chpenzko          #+#    #+#             */
-/*   Updated: 2022/07/11 13:34:17 by chpenzko         ###   ########.fr       */
+/*   Updated: 2022/07/14 12:18:19 by chpenzko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,20 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		newstring[i++] = s2[j++];
 	newstring[i] = '\0';
 	return (newstring);
+}
+
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+{
+	size_t	i;
+
+	i = 0;
+	if (dstsize == 0)
+		return (ft_strlen(src));
+	while (src[i] != '\0' && i < dstsize - 1)
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	dst[i] = '\0';
+	return (ft_strlen(src));
 }
