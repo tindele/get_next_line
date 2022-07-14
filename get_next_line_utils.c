@@ -6,9 +6,11 @@
 /*   By: chpenzko <chpenzko@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 10:22:59 by chpenzko          #+#    #+#             */
-/*   Updated: 2022/07/14 12:18:19 by chpenzko         ###   ########.fr       */
+/*   Updated: 2022/07/14 13:55:41 by chpenzko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "get_next_line.h"
 
 size_t	ft_strlen(const char *s)
 {

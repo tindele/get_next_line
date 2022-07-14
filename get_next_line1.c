@@ -6,15 +6,11 @@
 /*   By: chpenzko <chpenzko@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 16:16:12 by chpenzko          #+#    #+#             */
-/*   Updated: 2022/07/14 11:53:02 by chpenzko         ###   ########.fr       */
+/*   Updated: 2022/07/14 13:55:25 by chpenzko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <fcntl.h>
-#include <string.h>
+#include "get_next_line.h"
 
 char	*get_next_line(int fd)
 {
