@@ -1,0 +1,49 @@
+4c4
+< /*   get_next_line1.c                                   :+:      :+:    :+:   */
+---
+> /*   get_next_line.c                                    :+:      :+:    :+:   */
+8,9c8,9
+< /*   Created: 2022/07/13 16:16:12 by chpenzko          #+#    #+#             */
+< /*   Updated: 2022/07/14 13:55:25 by chpenzko         ###   ########.fr       */
+---
+> /*   Created: 2022/07/11 10:14:32 by chpenzko          #+#    #+#             */
+> /*   Updated: 2022/07/21 13:14:38 by chpenzko         ###   ########.fr       */
+24c24
+< 		return(NULL)
+---
+> 		return(NULL);
+31c31
+< (
+---
+> {
+35c35
+< 	buffer = (char	*) malloc ((BUFFER_SIZE + 1) * sizeof(char))
+---
+> 	buffer = (char	*) malloc ((BUFFER_SIZE + 1) * sizeof(char));
+52c52
+< )
+---
+> }
+69c69
+< 	line = ft_strlcpy(line, save, i + 1);
+---
+> 	ft_strlcpy(line, save, i + 1);
+71c71
+< 		line[i] == save[i];
+---
+> 		line[i] = save[i];
+108c108,109
+< 	char	next_line[40];
+---
+> 	// char	next_line[40];
+> 	int fd;
+110,111c111,116
+< 	next_line = get_next_line(text.txt);
+< 	printf("%s", next_line);
+---
+> 	fd = open("text.txt",O_RDONLY);
+> 	printf()
+> 	// next_line = get_next_line(fd);
+> 	// printf("%s", next_line);
+> 	// get_next_line(fd);
+> 	printf("%s", get_next_line(fd));

@@ -6,7 +6,7 @@
 /*   By: chpenzko <chpenzko@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 10:14:32 by chpenzko          #+#    #+#             */
-/*   Updated: 2022/07/21 10:22:39 by chpenzko         ###   ########.fr       */
+/*   Updated: 2022/07/21 14:28:26 by chpenzko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,13 @@ char	*get_next_line(int fd)
 	static char	*save;
 	char		*line;
 
+	// printf("TEST1\n");
+	save = NULL;
 	if (fd < 0  || BUFFER_SIZE <= 0)
 		return (NULL);
+	// printf("TEST2\n");
 	save = ft_read_and_save(fd, save);
+	
 	if(!save)
 		return(NULL);
 	line = ft_line(save);
@@ -35,17 +39,28 @@ char	*ft_read_and_save(int fd, char	*save)
 	buffer = (char	*) malloc ((BUFFER_SIZE + 1) * sizeof(char));
 	if (!buffer)
 		return (NULL);
+	// printf("TEST3\n");
 	read_char = 1;
-	while(!ft_strchr(save, '\n') && read_char != 0)
+	// printf("TEST4\n");
+	while(read_char != 0)
+	// while(!ft_strchr(save, '\n') && read_char != 0)
 	{
+		// printf("TEST5\n");
 		read_char = read(fd, buffer, BUFFER_SIZE);
+		// printf("%s",buffer);
+		// printf("TEST6\n");
 		if (read_char == -1)
 		{
 			free(buffer);
 			return (NULL);
 		}
 	buffer[read_char] = '\0';
+	// printf("%s",buffer);
+	printf("Buffer len: %i\n",ft_strlen(buffer));
 	save = ft_strjoin(save, buffer);
+	printf("Save len: %i\n",ft_strlen(buffer));
+	// printf("%s",save);
+	// printf("TEST7\n");
 	}
 	free(buffer);
 	return (save);
@@ -103,10 +118,26 @@ char	*ft_save_rest(char	*save)
 	return (rest);
 }
 
-/*int main()
+int main()
 {
-	char	next_line[40];
-
-	next_line = get_next_line(text.txt);
-	printf("%s", next_line);
-}*/
+	// char	next_line[40];
+	int fd;
+	int i;
+	
+	fd = open("text.txt",O_RDONLY);
+	i = 0;
+	while(i < 3)
+	{
+		
+		printf("%s",get_next_line(fd));
+		i++;
+	}
+	// system("leaks a.out");
+	
+	
+	// printf()
+	// next_line = get_next_line(fd);
+	// printf("%s", next_line);
+	// get_next_line(fd);
+	printf("%s", get_next_line(fd));
+}
