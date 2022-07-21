@@ -6,7 +6,7 @@
 /*   By: chpenzko <chpenzko@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 10:14:32 by chpenzko          #+#    #+#             */
-/*   Updated: 2022/07/14 14:33:10 by chpenzko         ###   ########.fr       */
+/*   Updated: 2022/07/21 10:22:39 by chpenzko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*get_next_line(int fd)
 		return (NULL);
 	save = ft_read_and_save(fd, save);
 	if(!save)
-		return(NULL)
+		return(NULL);
 	line = ft_line(save);
 	save = ft_save_rest(save);
 	return (line);
@@ -32,7 +32,7 @@ char	*ft_read_and_save(int fd, char	*save)
 	char	*buffer;
 	int		read_char;
 
-	buffer = (char	*) malloc ((BUFFER_SIZE + 1) * sizeof(char))
+	buffer = (char	*) malloc ((BUFFER_SIZE + 1) * sizeof(char));
 	if (!buffer)
 		return (NULL);
 	read_char = 1;
@@ -66,9 +66,9 @@ char	*ft_line(char *save)
 	{
 		return (NULL);
 	}
-	line = ft_strlcpy(line, save, i + 1);
+	ft_strlcpy(line, save, i + 1);
 	if(save[i] == '\n')
-		line[i] == save[i];
+		line[i] = save[i];
 	line[++i] = '\0';
 	return (line);
 }
@@ -103,10 +103,10 @@ char	*ft_save_rest(char	*save)
 	return (rest);
 }
 
-int main()
+/*int main()
 {
 	char	next_line[40];
 
 	next_line = get_next_line(text.txt);
 	printf("%s", next_line);
-}
+}*/

@@ -6,12 +6,15 @@
 /*   By: chpenzko <chpenzko@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 10:23:26 by chpenzko          #+#    #+#             */
-/*   Updated: 2022/07/14 13:29:41 by chpenzko         ###   ########.fr       */
+/*   Updated: 2022/07/21 10:15:51 by chpenzko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 10
+# endif
 
 # include <stdlib.h>
 # include <stdio.h>
