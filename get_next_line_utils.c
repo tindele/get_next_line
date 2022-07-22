@@ -6,7 +6,7 @@
 /*   By: chpenzko <chpenzko@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 10:22:59 by chpenzko          #+#    #+#             */
-/*   Updated: 2022/07/21 14:37:41 by chpenzko         ###   ########.fr       */
+/*   Updated: 2022/07/22 10:50:59 by chpenzko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ size_t	ft_strlen(const char *s)
 {
 	size_t	i;
 
-	if(s == NULL)
-		return (0);
 	i = 0;
 	while (s[i] != '\0')
 	{
@@ -44,24 +42,26 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	i;
 	size_t	j;
 
-	// if (s1 == NULL || s2 == NULL)
-	// 	return (NULL);
-	len = ft_strlen(s1) + ft_strlen(s2) + 1;
+	if (s1 == NULL && s2 == NULL)
+	 	return (NULL);
+	if(s1 == NULL)
+		len = ft_strlen(s2) + 1;
+	else
+		len = ft_strlen(s1) + ft_strlen(s2) + 1;
 	newstring = (char *) malloc(len * sizeof(char));
 	if (newstring == NULL)
 		return (NULL);
 	i = 0;
-	if(s1 == NULL)
-	while (s1[i] != '\0')
+	while (s1 && s1[i] != '\0')
 	{
 		newstring[i] = s1[i];
 		i++;
 	}
+	
 	j = 0;
 	while (s2[j] != '\0')
 		newstring[i++] = s2[j++];
 	newstring[i] = '\0';
-	// printf("%s",newstring);
 	return (newstring);
 }
 
