@@ -6,7 +6,7 @@
 /*   By: chpenzko <chpenzko@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 10:22:59 by chpenzko          #+#    #+#             */
-/*   Updated: 2022/07/22 10:50:59 by chpenzko         ###   ########.fr       */
+/*   Updated: 2022/07/25 11:16:28 by chpenzko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ char	*ft_strchr(const char *s, int c)
 	return (NULL);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char *s1, char const *s2)
 {
 	char	*newstring;
 	size_t	len;
@@ -62,6 +62,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	while (s2[j] != '\0')
 		newstring[i++] = s2[j++];
 	newstring[i] = '\0';
+	free(s1);
 	return (newstring);
 }
 
